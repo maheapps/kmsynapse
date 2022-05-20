@@ -1,0 +1,341 @@
+{
+	"name": "kmadlsgen2",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "kmworkspace1-WorkspaceDefaultStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "t001.csv",
+				"folderPath": "kminput1",
+				"fileSystem": "kmstr1"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "BUKRS",
+				"type": "String"
+			},
+			{
+				"name": "BUTXT",
+				"type": "String"
+			},
+			{
+				"name": "ORT01",
+				"type": "String"
+			},
+			{
+				"name": "LAND1",
+				"type": "String"
+			},
+			{
+				"name": "WAERS",
+				"type": "String"
+			},
+			{
+				"name": "SPRAS",
+				"type": "String"
+			},
+			{
+				"name": "KTOPL",
+				"type": "String"
+			},
+			{
+				"name": "WAABW",
+				"type": "String"
+			},
+			{
+				"name": "PERIV",
+				"type": "String"
+			},
+			{
+				"name": "KOKFI",
+				"type": "String"
+			},
+			{
+				"name": "RCOMP",
+				"type": "String"
+			},
+			{
+				"name": "ADRNR",
+				"type": "String"
+			},
+			{
+				"name": "STCEG",
+				"type": "String"
+			},
+			{
+				"name": "FIKRS",
+				"type": "String"
+			},
+			{
+				"name": "XFMCO",
+				"type": "String"
+			},
+			{
+				"name": "XFMCB",
+				"type": "String"
+			},
+			{
+				"name": "XFMCA",
+				"type": "String"
+			},
+			{
+				"name": "TXJCD",
+				"type": "String"
+			},
+			{
+				"name": "FMHRDATE",
+				"type": "String"
+			},
+			{
+				"name": "BUVAR",
+				"type": "String"
+			},
+			{
+				"name": "FDBUK",
+				"type": "String"
+			},
+			{
+				"name": "XFDIS",
+				"type": "String"
+			},
+			{
+				"name": "XVALV",
+				"type": "String"
+			},
+			{
+				"name": "XSKFN",
+				"type": "String"
+			},
+			{
+				"name": "KKBER",
+				"type": "String"
+			},
+			{
+				"name": "XMWSN",
+				"type": "String"
+			},
+			{
+				"name": "MREGL",
+				"type": "String"
+			},
+			{
+				"name": "XGSBE",
+				"type": "String"
+			},
+			{
+				"name": "XGJRV",
+				"type": "String"
+			},
+			{
+				"name": "XKDFT",
+				"type": "String"
+			},
+			{
+				"name": "XPROD",
+				"type": "String"
+			},
+			{
+				"name": "XEINK",
+				"type": "String"
+			},
+			{
+				"name": "XJVAA",
+				"type": "String"
+			},
+			{
+				"name": "XVVWA",
+				"type": "String"
+			},
+			{
+				"name": "XSLTA",
+				"type": "String"
+			},
+			{
+				"name": "XFDMM",
+				"type": "String"
+			},
+			{
+				"name": "XFDSD",
+				"type": "String"
+			},
+			{
+				"name": "XEXTB",
+				"type": "String"
+			},
+			{
+				"name": "EBUKR",
+				"type": "String"
+			},
+			{
+				"name": "KTOP2",
+				"type": "String"
+			},
+			{
+				"name": "UMKRS",
+				"type": "String"
+			},
+			{
+				"name": "BUKRS_GLOB",
+				"type": "String"
+			},
+			{
+				"name": "FSTVA",
+				"type": "String"
+			},
+			{
+				"name": "OPVAR",
+				"type": "String"
+			},
+			{
+				"name": "XCOVR",
+				"type": "String"
+			},
+			{
+				"name": "TXKRS",
+				"type": "String"
+			},
+			{
+				"name": "WFVAR",
+				"type": "String"
+			},
+			{
+				"name": "XBBBF",
+				"type": "String"
+			},
+			{
+				"name": "XBBBE",
+				"type": "String"
+			},
+			{
+				"name": "XBBBA",
+				"type": "String"
+			},
+			{
+				"name": "XBBKO",
+				"type": "String"
+			},
+			{
+				"name": "XSTDT",
+				"type": "String"
+			},
+			{
+				"name": "MWSKV",
+				"type": "String"
+			},
+			{
+				"name": "MWSKA",
+				"type": "String"
+			},
+			{
+				"name": "IMPDA",
+				"type": "String"
+			},
+			{
+				"name": "XNEGP",
+				"type": "String"
+			},
+			{
+				"name": "XKKBI",
+				"type": "String"
+			},
+			{
+				"name": "WT_NEWWT",
+				"type": "String"
+			},
+			{
+				"name": "PP_PDATE",
+				"type": "String"
+			},
+			{
+				"name": "INFMT",
+				"type": "String"
+			},
+			{
+				"name": "FSTVARE",
+				"type": "String"
+			},
+			{
+				"name": "KOPIM",
+				"type": "String"
+			},
+			{
+				"name": "DKWEG",
+				"type": "String"
+			},
+			{
+				"name": "OFFSACCT",
+				"type": "String"
+			},
+			{
+				"name": "BAPOVAR",
+				"type": "String"
+			},
+			{
+				"name": "XCOS",
+				"type": "String"
+			},
+			{
+				"name": "XCESSION",
+				"type": "String"
+			},
+			{
+				"name": "XSPLT",
+				"type": "String"
+			},
+			{
+				"name": "SURCCM",
+				"type": "String"
+			},
+			{
+				"name": "DTPROV",
+				"type": "String"
+			},
+			{
+				"name": "DTAMTC",
+				"type": "String"
+			},
+			{
+				"name": "DTTAXC",
+				"type": "String"
+			},
+			{
+				"name": "DTTDSP",
+				"type": "String"
+			},
+			{
+				"name": "DTAXR",
+				"type": "String"
+			},
+			{
+				"name": "XVATDATE",
+				"type": "String"
+			},
+			{
+				"name": "PST_PER_VAR",
+				"type": "String"
+			},
+			{
+				"name": "XBBSC",
+				"type": "String"
+			},
+			{
+				"name": "F_OBSOLETE",
+				"type": "String"
+			},
+			{
+				"name": "FM_DERIVE_ACC",
+				"type": "String"
+			}
+		]
+	}
+}
