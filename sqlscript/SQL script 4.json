@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 4",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [Duration]\n,[Date]\n,[Pulse]\n,[Maxpulse]\n,[Calories]\n FROM [dbo].[dirtydata]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "kMPOOL1",
+				"poolName": "kMPOOL1"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
