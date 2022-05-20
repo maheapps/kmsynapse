@@ -1,0 +1,775 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"workspaceName": {
+			"type": "string",
+			"metadata": "Workspace name",
+			"defaultValue": "kmworkspace1"
+		},
+		"kmworkspace1-WorkspaceDefaultSqlServer_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'kmworkspace1-WorkspaceDefaultSqlServer'"
+		},
+		"kmworkspace1-WorkspaceDefaultStorage_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://kmdlgen1.dfs.core.windows.net"
+		}
+	},
+	"variables": {
+		"workspaceId": "[concat('Microsoft.Synapse/workspaces/', parameters('workspaceName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('workspaceName'), '/kmadlsgen2')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "kmworkspace1-WorkspaceDefaultStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "t001.csv",
+						"folderPath": "kminput1",
+						"fileSystem": "kmstr1"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": [
+					{
+						"name": "BUKRS",
+						"type": "String"
+					},
+					{
+						"name": "BUTXT",
+						"type": "String"
+					},
+					{
+						"name": "ORT01",
+						"type": "String"
+					},
+					{
+						"name": "LAND1",
+						"type": "String"
+					},
+					{
+						"name": "WAERS",
+						"type": "String"
+					},
+					{
+						"name": "SPRAS",
+						"type": "String"
+					},
+					{
+						"name": "KTOPL",
+						"type": "String"
+					},
+					{
+						"name": "WAABW",
+						"type": "String"
+					},
+					{
+						"name": "PERIV",
+						"type": "String"
+					},
+					{
+						"name": "KOKFI",
+						"type": "String"
+					},
+					{
+						"name": "RCOMP",
+						"type": "String"
+					},
+					{
+						"name": "ADRNR",
+						"type": "String"
+					},
+					{
+						"name": "STCEG",
+						"type": "String"
+					},
+					{
+						"name": "FIKRS",
+						"type": "String"
+					},
+					{
+						"name": "XFMCO",
+						"type": "String"
+					},
+					{
+						"name": "XFMCB",
+						"type": "String"
+					},
+					{
+						"name": "XFMCA",
+						"type": "String"
+					},
+					{
+						"name": "TXJCD",
+						"type": "String"
+					},
+					{
+						"name": "FMHRDATE",
+						"type": "String"
+					},
+					{
+						"name": "BUVAR",
+						"type": "String"
+					},
+					{
+						"name": "FDBUK",
+						"type": "String"
+					},
+					{
+						"name": "XFDIS",
+						"type": "String"
+					},
+					{
+						"name": "XVALV",
+						"type": "String"
+					},
+					{
+						"name": "XSKFN",
+						"type": "String"
+					},
+					{
+						"name": "KKBER",
+						"type": "String"
+					},
+					{
+						"name": "XMWSN",
+						"type": "String"
+					},
+					{
+						"name": "MREGL",
+						"type": "String"
+					},
+					{
+						"name": "XGSBE",
+						"type": "String"
+					},
+					{
+						"name": "XGJRV",
+						"type": "String"
+					},
+					{
+						"name": "XKDFT",
+						"type": "String"
+					},
+					{
+						"name": "XPROD",
+						"type": "String"
+					},
+					{
+						"name": "XEINK",
+						"type": "String"
+					},
+					{
+						"name": "XJVAA",
+						"type": "String"
+					},
+					{
+						"name": "XVVWA",
+						"type": "String"
+					},
+					{
+						"name": "XSLTA",
+						"type": "String"
+					},
+					{
+						"name": "XFDMM",
+						"type": "String"
+					},
+					{
+						"name": "XFDSD",
+						"type": "String"
+					},
+					{
+						"name": "XEXTB",
+						"type": "String"
+					},
+					{
+						"name": "EBUKR",
+						"type": "String"
+					},
+					{
+						"name": "KTOP2",
+						"type": "String"
+					},
+					{
+						"name": "UMKRS",
+						"type": "String"
+					},
+					{
+						"name": "BUKRS_GLOB",
+						"type": "String"
+					},
+					{
+						"name": "FSTVA",
+						"type": "String"
+					},
+					{
+						"name": "OPVAR",
+						"type": "String"
+					},
+					{
+						"name": "XCOVR",
+						"type": "String"
+					},
+					{
+						"name": "TXKRS",
+						"type": "String"
+					},
+					{
+						"name": "WFVAR",
+						"type": "String"
+					},
+					{
+						"name": "XBBBF",
+						"type": "String"
+					},
+					{
+						"name": "XBBBE",
+						"type": "String"
+					},
+					{
+						"name": "XBBBA",
+						"type": "String"
+					},
+					{
+						"name": "XBBKO",
+						"type": "String"
+					},
+					{
+						"name": "XSTDT",
+						"type": "String"
+					},
+					{
+						"name": "MWSKV",
+						"type": "String"
+					},
+					{
+						"name": "MWSKA",
+						"type": "String"
+					},
+					{
+						"name": "IMPDA",
+						"type": "String"
+					},
+					{
+						"name": "XNEGP",
+						"type": "String"
+					},
+					{
+						"name": "XKKBI",
+						"type": "String"
+					},
+					{
+						"name": "WT_NEWWT",
+						"type": "String"
+					},
+					{
+						"name": "PP_PDATE",
+						"type": "String"
+					},
+					{
+						"name": "INFMT",
+						"type": "String"
+					},
+					{
+						"name": "FSTVARE",
+						"type": "String"
+					},
+					{
+						"name": "KOPIM",
+						"type": "String"
+					},
+					{
+						"name": "DKWEG",
+						"type": "String"
+					},
+					{
+						"name": "OFFSACCT",
+						"type": "String"
+					},
+					{
+						"name": "BAPOVAR",
+						"type": "String"
+					},
+					{
+						"name": "XCOS",
+						"type": "String"
+					},
+					{
+						"name": "XCESSION",
+						"type": "String"
+					},
+					{
+						"name": "XSPLT",
+						"type": "String"
+					},
+					{
+						"name": "SURCCM",
+						"type": "String"
+					},
+					{
+						"name": "DTPROV",
+						"type": "String"
+					},
+					{
+						"name": "DTAMTC",
+						"type": "String"
+					},
+					{
+						"name": "DTTAXC",
+						"type": "String"
+					},
+					{
+						"name": "DTTDSP",
+						"type": "String"
+					},
+					{
+						"name": "DTAXR",
+						"type": "String"
+					},
+					{
+						"name": "XVATDATE",
+						"type": "String"
+					},
+					{
+						"name": "PST_PER_VAR",
+						"type": "String"
+					},
+					{
+						"name": "XBBSC",
+						"type": "String"
+					},
+					{
+						"name": "F_OBSOLETE",
+						"type": "String"
+					},
+					{
+						"name": "FM_DERIVE_ACC",
+						"type": "String"
+					}
+				]
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/kmworkspace1-WorkspaceDefaultStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/sapcompany')]",
+			"type": "Microsoft.Synapse/workspaces/datasets",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "kmworkspace1-WorkspaceDefaultStorage",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "DelimitedText",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobFSLocation",
+						"fileName": "companycode.txt",
+						"folderPath": "Kmoutput1",
+						"fileSystem": "kmstr1"
+					},
+					"columnDelimiter": ",",
+					"escapeChar": "\\",
+					"firstRowAsHeader": true,
+					"quoteChar": "\""
+				},
+				"schema": []
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/linkedServices/kmworkspace1-WorkspaceDefaultStorage')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/kmworkspace1-WorkspaceDefaultSqlServer')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"parameters": {
+					"DBName": {
+						"type": "String"
+					}
+				},
+				"annotations": [],
+				"type": "AzureSqlDW",
+				"typeProperties": {
+					"connectionString": "[parameters('kmworkspace1-WorkspaceDefaultSqlServer_connectionString')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/kmworkspace1-WorkspaceDefaultStorage')]",
+			"type": "Microsoft.Synapse/workspaces/linkedServices",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"annotations": [],
+				"type": "AzureBlobFS",
+				"typeProperties": {
+					"url": "[parameters('kmworkspace1-WorkspaceDefaultStorage_properties_typeProperties_url')]"
+				},
+				"connectVia": {
+					"referenceName": "AutoResolveIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/integrationRuntimes/AutoResolveIntegrationRuntime')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/AutoResolveIntegrationRuntime')]",
+			"type": "Microsoft.Synapse/workspaces/integrationRuntimes",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "AutoResolve",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 8,
+							"timeToLive": 0
+						}
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/IntegrationRuntime1')]",
+			"type": "Microsoft.Synapse/workspaces/integrationRuntimes",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "SelfHosted",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/kmglmaster')]",
+			"type": "Microsoft.Synapse/workspaces/dataflows",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"description": "kmglmaster",
+				"type": "MappingDataFlow",
+				"typeProperties": {
+					"sources": [
+						{
+							"dataset": {
+								"referenceName": "kmadlsgen2",
+								"type": "DatasetReference"
+							},
+							"name": "sapt001"
+						}
+					],
+					"sinks": [
+						{
+							"dataset": {
+								"referenceName": "sapcompany",
+								"type": "DatasetReference"
+							},
+							"name": "sink1"
+						}
+					],
+					"transformations": [
+						{
+							"name": "select1"
+						}
+					],
+					"scriptLines": [
+						"source(output(",
+						"          BUKRS as string,",
+						"          BUTXT as string,",
+						"          ORT01 as string,",
+						"          LAND1 as string,",
+						"          WAERS as string,",
+						"          SPRAS as string,",
+						"          KTOPL as string,",
+						"          WAABW as string,",
+						"          PERIV as string,",
+						"          KOKFI as string,",
+						"          RCOMP as string,",
+						"          ADRNR as string,",
+						"          STCEG as string,",
+						"          FIKRS as string,",
+						"          XFMCO as string,",
+						"          XFMCB as string,",
+						"          XFMCA as string,",
+						"          TXJCD as string,",
+						"          FMHRDATE as string,",
+						"          BUVAR as string,",
+						"          FDBUK as string,",
+						"          XFDIS as string,",
+						"          XVALV as string,",
+						"          XSKFN as string,",
+						"          KKBER as string,",
+						"          XMWSN as string,",
+						"          MREGL as string,",
+						"          XGSBE as string,",
+						"          XGJRV as string,",
+						"          XKDFT as string,",
+						"          XPROD as string,",
+						"          XEINK as string,",
+						"          XJVAA as string,",
+						"          XVVWA as string,",
+						"          XSLTA as string,",
+						"          XFDMM as string,",
+						"          XFDSD as string,",
+						"          XEXTB as string,",
+						"          EBUKR as string,",
+						"          KTOP2 as string,",
+						"          UMKRS as string,",
+						"          BUKRS_GLOB as string,",
+						"          FSTVA as string,",
+						"          OPVAR as string,",
+						"          XCOVR as string,",
+						"          TXKRS as string,",
+						"          WFVAR as string,",
+						"          XBBBF as string,",
+						"          XBBBE as string,",
+						"          XBBBA as string,",
+						"          XBBKO as string,",
+						"          XSTDT as string,",
+						"          MWSKV as string,",
+						"          MWSKA as string,",
+						"          IMPDA as string,",
+						"          XNEGP as string,",
+						"          XKKBI as string,",
+						"          WT_NEWWT as string,",
+						"          PP_PDATE as string,",
+						"          INFMT as string,",
+						"          FSTVARE as string,",
+						"          KOPIM as string,",
+						"          DKWEG as string,",
+						"          OFFSACCT as string,",
+						"          BAPOVAR as string,",
+						"          XCOS as string,",
+						"          XCESSION as string,",
+						"          XSPLT as string,",
+						"          SURCCM as string,",
+						"          DTPROV as string,",
+						"          DTAMTC as string,",
+						"          DTTAXC as string,",
+						"          DTTDSP as string,",
+						"          DTAXR as string,",
+						"          XVATDATE as string,",
+						"          PST_PER_VAR as string,",
+						"          XBBSC as string,",
+						"          F_OBSOLETE as string,",
+						"          FM_DERIVE_ACC as string",
+						"     ),",
+						"     allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     ignoreNoFilesFound: false) ~> sapt001",
+						"sapt001 select(mapColumn(",
+						"          Company = BUKRS,",
+						"          Name = BUTXT,",
+						"          City = ORT01,",
+						"          Country = LAND1,",
+						"          Currency = WAERS,",
+						"          Language = SPRAS,",
+						"          COA = KTOPL",
+						"     ),",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> select1",
+						"select1 sink(allowSchemaDrift: true,",
+						"     validateSchema: false,",
+						"     umask: 0022,",
+						"     preCommands: [],",
+						"     postCommands: [],",
+						"     skipDuplicateMapInputs: true,",
+						"     skipDuplicateMapOutputs: true) ~> sink1"
+					]
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('workspaceId'), '/datasets/kmadlsgen2')]",
+				"[concat(variables('workspaceId'), '/datasets/sapcompany')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/WorkspaceSystemIdentity')]",
+			"type": "Microsoft.Synapse/workspaces/credentials",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"type": "ManagedIdentity",
+				"typeProperties": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 1')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] \n\tWITH ( FORMAT_TYPE = DELIMITEDTEXT ,\n\t       FORMAT_OPTIONS (\n\t\t\t FIELD_TERMINATOR = ',',\n\t\t\t USE_TYPE_DEFAULT = FALSE\n\t\t\t))\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'kmstr1_kmdlgen1_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [kmstr1_kmdlgen1_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://kmstr1@kmdlgen1.dfs.core.windows.net' \n\t)\nGO\n\nCREATE EXTERNAL TABLE dirtydata (\n\t[Duration] bigint,\n\t[Date] nvarchar(4000),\n\t[Pulse] bigint,\n\t[Maxpulse] bigint,\n\t[Calories] float\n\t)\n\tWITH (\n\tLOCATION = 'Kmoutput1/DirtyData.txt',\n\tDATA_SOURCE = [kmstr1_kmdlgen1_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseDelimitedTextFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.dirtydata\nGO",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "KMDB",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 2')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "CREATE EXTERNAL TABLE [dbo].dirtydata\n(\n\t [Id] INT\n)\nWITH\n(\n\tLOCATION = '/folder/file',\n\tDATA_SOURCE = [DataSource1],\n\tFILE_FORMAT = [FileFormat1]\n)\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "KMDB",
+						"poolName": "Built-in"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 3')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "IF NOT EXISTS (SELECT * FROM sys.external_file_formats WHERE name = 'SynapseDelimitedTextFormat') \n\tCREATE EXTERNAL FILE FORMAT [SynapseDelimitedTextFormat] \n\tWITH ( FORMAT_TYPE = DELIMITEDTEXT ,\n\t       FORMAT_OPTIONS (\n\t\t\t FIELD_TERMINATOR = ',',\n\t\t\t USE_TYPE_DEFAULT = FALSE\n\t\t\t))\nGO\n\nIF NOT EXISTS (SELECT * FROM sys.external_data_sources WHERE name = 'kmstr1_kmdlgen1_dfs_core_windows_net') \n\tCREATE EXTERNAL DATA SOURCE [kmstr1_kmdlgen1_dfs_core_windows_net] \n\tWITH (\n\t\tLOCATION = 'abfss://kmstr1@kmdlgen1.dfs.core.windows.net', \n\t\tTYPE = HADOOP \n\t)\nGO\n\nCREATE EXTERNAL TABLE dirtydata2 (\n\t[Duration] int,\n\t[Date] DATE,\n\t[Pulse] int,\n\t[Maxpulse] int,\n\t[Calories] float\n\t)\n\tWITH (\n\tLOCATION = 'Kmoutput1/DirtyData.txt',\n\tDATA_SOURCE = [kmstr1_kmdlgen1_dfs_core_windows_net],\n\tFILE_FORMAT = [SynapseDelimitedTextFormat]\n\t)\nGO\n\n\nSELECT TOP 100 * FROM dbo.dirtydata2\nGO",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 4')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "SELECT TOP (100) [Duration]\n,[Date]\n,[Pulse]\n,[Maxpulse]\n,[Calories]\n FROM [dbo].[dirtydata]",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 5')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "DROP EXTERNAL TABLE [dbo].[dirtydata1]\nGO\n\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 6')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "DROP EXTERNAL TABLE [dbo].[dirtydata2]\nGO\n\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 7')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "DROP EXTERNAL TABLE [dbo].[dirtydata]\nGO\n\n",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/kMPOOL1')]",
+			"type": "Microsoft.Synapse/workspaces/sqlPools",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"collation": "SQL_Latin1_General_CP1_CI_AS",
+				"maxSizeBytes": 263882790666240,
+				"annotations": []
+			},
+			"dependsOn": [],
+			"location": "eastus"
+		}
+	]
+}
