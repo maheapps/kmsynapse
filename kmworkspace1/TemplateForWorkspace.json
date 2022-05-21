@@ -917,6 +917,66 @@
 				"type": "SqlQuery"
 			},
 			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 13')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "SELECT\n    pc.EnglishProductCategoryName AS ProductCategory\n    ,psc.EnglishProductSubcategoryName AS ProductSubcategory\n    ,Year(f.OrderDate) AS CalendarYear\n    ,CASE\n        WHEN Month(f.OrderDate) < 7 THEN Year(f.OrderDate)\n        ELSE Year(f.OrderDate) + 1\n    END AS FiscalYear -- Fiscal year runs from Jul to June)\n    ,Month(f.OrderDate) AS [Month]\n    ,Sum(f.OrderQuantity) AS Quantity\n    ,Sum(f.ExtendedAmount) AS Amount\n    ,Approx_count_distinct(f.SalesOrderNumber) AS UniqueOrders  \nFROM\n    [dbo].[FactResellerSales] f\nINNER JOIN [dbo].[DimProduct] p\n    ON f.[ProductKey] = p.[ProductKey]\nINNER JOIN [dbo].[DimProductSubcategory] psc\n    ON p.[ProductSubcategoryKey] = psc.[ProductSubcategoryKey]\nINNER JOIN [dbo].[DimProductCategory] pc\n    ON psc.[ProductCategoryKey] = pc.[ProductCategoryKey]\nGROUP BY\n    pc.EnglishProductCategoryName\n    ,psc.EnglishProductSubcategoryName\n    ,Year(f.OrderDate)\n    ,CASE\n        WHEN Month(f.OrderDate) < 7 THEN Year(f.OrderDate)\n        ELSE Year(f.OrderDate) + 1\n    END\n    ,Month(f.OrderDate)\nORDER BY Amount DESC",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 14')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "SELECT TOP (100) [ProductKey]\n,[OrderDateKey]\n,[DueDateKey]\n,[ShipDateKey]\n,[ResellerKey]\n,[EmployeeKey]\n,[PromotionKey]\n,[CurrencyKey]\n,[SalesTerritoryKey]\n,[SalesOrderNumber]\n,[SalesOrderLineNumber]\n,[RevisionNumber]\n,[OrderQuantity]\n,[UnitPrice]\n,[ExtendedAmount]\n,[UnitPriceDiscountPct]\n,[DiscountAmount]\n,[ProductStandardCost]\n,[TotalProductCost]\n,[SalesAmount]\n,[TaxAmt]\n,[Freight]\n,[CarrierTrackingNumber]\n,[CustomerPONumber]\n,[OrderDate]\n,[DueDate]\n,[ShipDate]\n FROM [dbo].[FactResellerSales]",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('workspaceName'), '/SQL script 15')]",
+			"type": "Microsoft.Synapse/workspaces/sqlscripts",
+			"apiVersion": "2019-06-01-preview",
+			"properties": {
+				"content": {
+					"query": "CREATE TABLE [dbo].[DimDate]\n( \n    [DateKey] [int]  NOT NULL,\n    [DateAltKey] [datetime]  NOT NULL,\n    [CalendarYear] [int]  NOT NULL,\n    [CalendarQuarter] [int]  NOT NULL,\n    [MonthOfYear] [int]  NOT NULL,\n    [MonthName] [nvarchar](15)  NOT NULL,\n    [DayOfMonth] [int]  NOT NULL,\n    [DayOfWeek] [int]  NOT NULL,\n    [DayName] [nvarchar](15)  NOT NULL,\n    [FiscalYear] [int]  NOT NULL,\n    [FiscalQuarter] [int]  NOT NULL\n)\nWITH\n(\n    DISTRIBUTION = REPLICATE,\n    CLUSTERED COLUMNSTORE INDEX\n);\nGO",
+					"metadata": {
+						"language": "sql"
+					},
+					"currentConnection": {
+						"databaseName": "kMPOOL1",
+						"poolName": "kMPOOL1"
+					},
+					"resultLimit": 5000
+				},
+				"type": "SqlQuery"
+			},
+			"dependsOn": []
 		}
 	]
 }
