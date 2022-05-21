@@ -1,0 +1,17 @@
+{
+	"name": "SQL script 14",
+	"properties": {
+		"content": {
+			"query": "SELECT TOP (100) [ProductKey]\n,[OrderDateKey]\n,[DueDateKey]\n,[ShipDateKey]\n,[ResellerKey]\n,[EmployeeKey]\n,[PromotionKey]\n,[CurrencyKey]\n,[SalesTerritoryKey]\n,[SalesOrderNumber]\n,[SalesOrderLineNumber]\n,[RevisionNumber]\n,[OrderQuantity]\n,[UnitPrice]\n,[ExtendedAmount]\n,[UnitPriceDiscountPct]\n,[DiscountAmount]\n,[ProductStandardCost]\n,[TotalProductCost]\n,[SalesAmount]\n,[TaxAmt]\n,[Freight]\n,[CarrierTrackingNumber]\n,[CustomerPONumber]\n,[OrderDate]\n,[DueDate]\n,[ShipDate]\n FROM [dbo].[FactResellerSales]",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "kMPOOL1",
+				"poolName": "kMPOOL1"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}
